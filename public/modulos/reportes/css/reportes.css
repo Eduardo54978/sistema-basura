@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.reportes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.reporte-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    border-top: 5px solid #11998e;
+}
+
+.reporte-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(17, 153, 142, 0.4);
+}
+
+.reporte-card h2 {
+    color: #11998e;
+    margin-bottom: 15px;
+}
+
+.reporte-card h3 {
+    color: #38ef7d;
+    margin-bottom: 10px;
+}
+
+.reporte-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    box-shadow: 0 5px 15px rgba(17, 153, 142, 0.5);
+    transform: scale(1.05);
+}
