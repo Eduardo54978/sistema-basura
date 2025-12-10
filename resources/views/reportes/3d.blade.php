@@ -47,10 +47,9 @@
     </style>
 </head>
 <body>
+     @include('layouts.menu')
     <div class="container">
         <h1>🎯 Reporte Tipo 3: Comparación por Categoría</h1>
-        
-        <!-- UN SOLO SELECTOR DE MES Y AÑO -->
         <div class="selector-mes">
             <h3 style="color: #11998e; margin-bottom: 15px;">📅 Selecciona Mes y Año</h3>
             
@@ -79,13 +78,9 @@
                 Las barras se animarán al cambiar de mes ✨
             </p>
         </div>
-
-        <!-- GRÁFICO SVG ANIMADO -->
         <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0;">
             <svg id="grafico3d" width="800" height="500" style="border: 2px solid #e9ecef; border-radius: 10px;"></svg>
         </div>
-
-        <!-- LEYENDA DE COLORES -->
         <div class="leyenda">
             <h3 style="color: #11998e; margin-bottom: 15px;">🎨 Leyenda de Categorías</h3>
             <div style="text-align: center;">
@@ -111,8 +106,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- TABLA DE DATOS -->
         <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0;">
             <h2 style="color: #11998e; margin-bottom: 20px;">📊 Datos del Mes Seleccionado</h2>
             <table style="width: 100%; border-collapse: collapse;">
@@ -153,13 +146,9 @@
 
         <a href="{{ route('reportes.index') }}" class="btn" style="margin-top: 20px;">← Volver a Reportes</a>
     </div>
-
-    <!-- Datos en JSON -->
     <script type="application/json" id="datos-json">
         @json($datos)
     </script>
-
-    <!-- JavaScript para cambiar mes/año -->
     <script>
         const selectMes = document.getElementById('selectMes');
         const selectAnio = document.getElementById('selectAnio');
@@ -178,8 +167,6 @@
             });
         }
     </script>
-    
-    <!-- Cargar el gráfico SVG -->
     <script src="{{ asset('modulos/reportes/js/3d.js') }}"></script>
 </body>
 </html>

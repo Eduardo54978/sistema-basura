@@ -32,10 +32,9 @@
     </style>
 </head>
 <body>
+     @include('layouts.menu')
     <div class="container">
         <h1>📊 Reporte Tipo 1: Conteo por Categoría</h1>
-        
-        <!-- FILTROS -->
         <div class="filtros">
             <h3 style="color: #11998e; margin-bottom: 15px;">🔍 Filtrar por Fecha</h3>
             <form method="GET" action="{{ route('reportes.conteo') }}">

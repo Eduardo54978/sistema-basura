@@ -35,10 +35,9 @@
     </style>
 </head>
 <body>
+     @include('layouts.menu')
     <div class="container">
         <h1>📅 Reporte Tipo 2: Análisis por Mes</h1>
-        
-        <!-- FILTRO DE AÑO -->
         <div class="filtros">
             <h3 style="color: #11998e; margin-bottom: 15px;">🔍 Filtrar por Año</h3>
             <form method="GET" action="{{ route('reportes.fecha') }}">

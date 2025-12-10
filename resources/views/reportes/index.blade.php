@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{ asset('modulos/reportes/css/reportes.css') }}">
 </head>
 <body>
+     @include('layouts.menu')
     <div class="container">
         <h1>🗑️ Sistema de Detección y Clasificación de Basura</h1>
         <h2 style="color: white; text-align: center; margin-bottom: 50px;">Módulo de Reportes y Estadísticas</h2>

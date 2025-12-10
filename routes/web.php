@@ -1,12 +1,42 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReporteController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
+Route::get('/', [App\Http\Controllers\ArchivosController::class, 'index'])->name('inicio');
+Route::post('/subir-archivo', [App\Http\Controllers\ArchivosController::class, 'store'])->name('archivo.subir');
 Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.index');
 Route::get('/reportes/conteo', [ReporteController::class, 'conteoCategoria'])->name('reportes.conteo');
 Route::get('/reportes/fecha', [ReporteController::class, 'analisisFecha'])->name('reportes.fecha');
 Route::get('/reportes/3d', [ReporteController::class, 'visualizacion3d'])->name('reportes.3d');
+Route::get('/automatizacion', [App\Http\Controllers\AutomatizacionController::class, 'index'])->name('automatizacion.index');
+Route::post('/automatizacion', [App\Http\Controllers\AutomatizacionController::class, 'store'])->name('automatizacion.store');
+Route::delete('/automatizacion/{id}', [App\Http\Controllers\AutomatizacionController::class, 'destroy'])->name('automatizacion.destroy');
+Route::post('/automatizacion/{id}/ejecutar', [App\Http\Controllers\AutomatizacionController::class, 'ejecutar'])->name('automatizacion.ejecutar');
+Route::get('/automatizacion/historial', [App\Http\Controllers\AutomatizacionController::class, 'historial'])->name('automatizacion.historial');
+Route::get('/usuarios', function() { return 'Módulo de Usuarios (En desarrollo)'; })->name('usuarios.index');
+Route::get('/historial', function() { return 'Módulo de Historial (En desarrollo)'; })->name('historial.index');
+Route::get('/configuracion', function() { return 'Módulo de Configuración (En desarrollo)'; })->name('configuracion.index');
+Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios/registro', [App\Http\Controllers\UsuariosController::class, 'create'])->name('usuarios.registro');
+Route::post('/usuarios', [App\Http\Controllers\UsuariosController::class, 'store'])->name('usuarios.store');
+Route::get('/usuarios/login', [App\Http\Controllers\UsuariosController::class, 'loginForm'])->name('usuarios.login');
+Route::post('/usuarios/login', [App\Http\Controllers\UsuariosController::class, 'login'])->name('usuarios.login.post');
+Route::post('/usuarios/logout', [App\Http\Controllers\UsuariosController::class, 'logout'])->name('usuarios.logout');
+Route::get('/usuarios/{id}/perfil', [App\Http\Controllers\UsuariosController::class, 'perfil'])->name('usuarios.perfil');
+Route::get('/usuarios/{id}/editar', [App\Http\Controllers\UsuariosController::class, 'edit'])->name('usuarios.edit');
+Route::put('/usuarios/{id}', [App\Http\Controllers\UsuariosController::class, 'update'])->name('usuarios.update');
+Route::delete('/usuarios/{id}', [App\Http\Controllers\UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+Route::get('/usuarios/recuperar', [App\Http\Controllers\UsuariosController::class, 'recuperarForm'])->name('usuarios.recuperar');
+Route::post('/usuarios/recuperar', [App\Http\Controllers\UsuariosController::class, 'recuperar'])->name('usuarios.recuperar.post');
+Route::get('/historial', [App\Http\Controllers\HistorialController::class, 'index'])->name('historial.index');
+Route::get('/historial/{id}', [App\Http\Controllers\HistorialController::class, 'show'])->name('historial.show');
+Route::delete('/historial/{id}', [App\Http\Controllers\HistorialController::class, 'destroy'])->name('historial.destroy');
+Route::delete('/historial-all/eliminar', [App\Http\Controllers\HistorialController::class, 'destroyAll'])->name('historial.destroyAll');
+Route::get('/historial/exportar/xml', [App\Http\Controllers\HistorialController::class, 'exportarXML'])->name('historial.exportar.xml');
+Route::get('/historial/exportar/pdf', [App\Http\Controllers\HistorialController::class, 'exportarPDF'])->name('historial.exportar.pdf');
+Route::get('/configuracion', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('configuracion.index');
+Route::post('/configuracion', [App\Http\Controllers\ConfiguracionController::class, 'update'])->name('configuracion.update');
+Route::get('/configuracion/xml', [App\Http\Controllers\ConfiguracionController::class, 'descargarXML'])->name('configuracion.xml');
